@@ -1,0 +1,15 @@
+name: Running scripts
+on: push
+
+jobs:
+    ascii_job:
+        runs-on: ubuntu-20.04
+        steps:
+        - name: Checkout repo
+          uses: actions/checkout@v4
+
+        - name: List repo files
+          run: ls -lrta
+          
+        - name: Ezecuting shell script
+          run: ./ascii-script.sh

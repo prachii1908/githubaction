@@ -1,6 +1,6 @@
 name: Ascii generation
 on: push
-
+## multiple jobs will run parallely in different machines
 jobs:
     build_job1:
         runs-on: ubuntu-latest
@@ -13,6 +13,7 @@ jobs:
           run: sleep 30
     
     test_job2:
+        needs: build_job1
         runs-on: ubuntu-latest
         steps:
         - name: sleep for 10 seconds
@@ -21,6 +22,7 @@ jobs:
           run: grep -i "dragon" dragon.txt
     
     deploy_job3:
+        needs: [build_job1, test_job2]
         runs-on: ubuntu-latest
         steps:
         - name: read file

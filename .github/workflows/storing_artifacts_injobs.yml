@@ -1,4 +1,4 @@
-name: Multiple jobs
+name: Working with artifacts
 on: push
 ## multiple jobs will run parallely in different machines
 ## all three jobs run on their own and file from job will not be automatically shared to the other jobs
